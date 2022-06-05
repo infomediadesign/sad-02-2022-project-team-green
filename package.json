@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sivakoti/SAD_Project.git"
+    "url": "git+https://github.com/infomediadesign/sad-02-2022-project-team-green"
   },
-  "author": "siva",
+  "author": "sad-02-2022-project-team-green",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/sivakoti/SAD_Project/issues"
+    "url": "https://github.com/infomediadesign/sad-02-2022-project-team-green/issues"
   },
-  "homepage": "https://github.com/sivakoti/SAD_Project#readme",
+  "homepage": "https://github.com/infomediadesign/sad-02-2022-project-team-green#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
