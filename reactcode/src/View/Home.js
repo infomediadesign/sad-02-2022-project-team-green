@@ -23,7 +23,7 @@ function Home() {
     return (
         <div className='container'>
         <div className='row justify-content-centre'>
-        {loading? (<h1>loading..</h1>) : error ? (<h1>error</h1>) : rooms.map(room => {
+        {error ? (<h1>error</h1>) : rooms.map(room => {
                 return <div className='com-md-9'>
                     <Room room={room}/>
                 </div>
