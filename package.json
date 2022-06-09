@@ -1,0 +1,32 @@
+{
+  "name": "sad_project",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sivakoti/SAD_Project.git"
+  },
+  "author": "siva",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sivakoti/SAD_Project/issues"
+  },
+  "homepage": "https://github.com/sivakoti/SAD_Project#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4",
+    "router": "^1.3.7",
+    "validation": "^0.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "description": ""
+}
