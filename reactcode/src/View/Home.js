@@ -17,13 +17,13 @@ function Home() {
             console.log(error);
             saveloading(false);
         }
-        fetchData()
+        fetchData();
     }, [])
 
     return (
         <div className='container'>
         <div className='row justify-content-centre'>
-            {error ? (<h1>error</h1>) : rooms.map(room => {
+        {loading? (<h1>loading..</h1>) : error ? (<h1>error</h1>) : rooms.map(room => {
                 return <div className='com-md-9'>
                     <Room room={room}/>
                 </div>
