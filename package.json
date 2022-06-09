@@ -1,14 +1,22 @@
 {
   "name": "sad_project",
   "version": "1.0.0",
+<<<<<<< HEAD
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "app": "nodemon app.js",
+=======
+  "main": "backend.js",
+  "scripts": {
+    "start": "node backend.js",
+    "app": "nodemon backend.js",
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
+<<<<<<< HEAD
     "url": "git+https://github.com/sivakoti/SAD_Project.git"
   },
   "author": "siva",
@@ -17,10 +25,25 @@
     "url": "https://github.com/sivakoti/SAD_Project/issues"
   },
   "homepage": "https://github.com/sivakoti/SAD_Project#readme",
+=======
+    "url": "git+https://github.com/infomediadesign/sad-02-2022-project-team-green"
+  },
+  "author": "sad-02-2022-project-team-green",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/infomediadesign/sad-02-2022-project-team-green/issues"
+  },
+  "homepage": "https://github.com/infomediadesign/sad-02-2022-project-team-green#readme",
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
+<<<<<<< HEAD
+=======
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
     "mongoose": "^6.3.4",
     "router": "^1.3.7",
     "validation": "^0.0.1"

@@ -17,13 +17,21 @@ function Home() {
             console.log(error);
             saveloading(false);
         }
+<<<<<<< HEAD
         fetchData();
+=======
+        fetchData()
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
     }, [])
 
     return (
         <div className='container'>
         <div className='row justify-content-centre'>
+<<<<<<< HEAD
         {loading? (<h1>loading..</h1>) : error ? (<h1>error</h1>) : rooms.map(room => {
+=======
+            {error ? (<h1>error</h1>) : rooms.map(room => {
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
                 return <div className='com-md-9'>
                     <Room room={room}/>
                 </div>

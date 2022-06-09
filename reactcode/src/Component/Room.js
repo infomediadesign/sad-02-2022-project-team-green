@@ -16,7 +16,11 @@ function Room({room}) {
             <p>Guests :{room.maxPeople}</p>
             <p>Rent(€) :{room.roomPerDay}</p>
             <div style={{float:'right'}}>
+<<<<<<< HEAD
               <Link to={`/reserve/${room._id}`}>
+=======
+              <Link to={`/reserve/${room.roomNumber}`}>
+>>>>>>> 2468531c5c9518bf4e8957c0b2033dc0c05648ca
               <button className='btn btn-primary m-3'>Reserve</button>
               </Link>
               <button className='btn btn-primary' onClick={handleShow}>Details</button>
