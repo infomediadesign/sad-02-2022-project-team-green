@@ -16,9 +16,11 @@ function Room({room,checkin,checkout}) {
             <p>Guests :{room.maxPeople}</p>
             <p>Rent(€) :{room.roomPerDay}</p>
             <div style={{float:'right'}}>
-              <Link to={`/reserve/${room._id}/${checkin}/${checkout}`}>
-              <button className='btn btn-primary m-3'>Reserve</button>
-              </Link>
+              {(checkin && checkout) && (
+                <Link to={`/reserve/${room._id}/${checkin}/${checkout}`}>
+                <button className='btn btn-primary m-3'>Reserve</button>
+                </Link>
+              )}
               <button className='btn btn-primary' onClick={handleShow}>Details</button>
             </div>
         </div>
