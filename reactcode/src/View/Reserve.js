@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 function Reserve() {
   const [rooms, saverooms] = useState([]);
-  const [loading, saveloading] = useState();
+  const [loading, saveloading] = useState(true);
   const [error, saveerror] = useState();
   const {roomid}= useParams();
   useEffect(() => async function Reserve() {
@@ -21,9 +21,31 @@ function Reserve() {
       Reserve();
   }, [])
   return (
-    <div>
-        <h1>Reserve</h1>
-        <h1>room id= {roomid}</h1>
+    <div className='m-1'>
+        {error ? (<h1>error</h1>) :(<div className="row justify-content-center boxshadow">
+                <div className='col-md-5'>
+                  <div>
+                      <h1>Booking details</h1>
+                      <p>Room Number : {rooms.roomNumber}</p>
+                      <p>Name : </p>
+                      <p>From : </p>
+                      <p>To : </p>
+                      <p>Max Guests : {rooms.maxPeople}</p>
+                  </div>
+                  <div>
+                      <h1>Payment</h1>
+                      <p>Total Days : </p>
+                      <p>cost per day :{rooms.roomPerDay} </p>
+                      <p>Total payment : </p>
+                  </div>
+                <div style={{float:'right'}}>
+                      <button className='btn btn-primary'>Reserve Now</button> 
+                </div> 
+                </div>
+                <div className='col-md-5'>
+                  <h1>image</h1>  
+                </div>   
+                </div>)}
     </div>
   )
 }
