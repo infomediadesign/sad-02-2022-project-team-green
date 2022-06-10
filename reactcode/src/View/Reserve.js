@@ -9,14 +9,15 @@ function Reserve() {
   const [error, saveerror] = useState();
   const {roomid,checkin,checkout}= useParams();
   const checkinn =moment(checkin,'MMM Do YYYY, dddd');
-  const checkoutt =moment(checkout,'MMM Do YYYY, dddd')
+  const checkoutt =moment(checkout,'MMM Do YYYY, dddd');
   const totaldays=checkoutt.diff(checkinn,'days');
-  const totalpayment =rooms.roomPerDay*totaldays;
+  const [totalpayment, savetotalpayment] = useState();
 
   useEffect(() => async function Reserve() {
       try {
           saveloading(true);
           const data = (await axios.post('/getroom/getroombyid', {roomid:roomid})).data;
+          savetotalpayment(data.roomPerDay*totaldays);
           saverooms(data);
           saveloading(false);
       } catch (error) {
@@ -26,12 +27,25 @@ function Reserve() {
       }
       Reserve();
   }, [])
+
+  async function reservenow(){
+      const reserveDetails={
+        rooms,
+        userid:'123',
+        checkin,
+        checkout,
+        totaldays,
+        totalpayment
+      }
+      const reservesend = await axios.post('/reservation/reservenow',reserveDetails)
+  }
+
   return (
     <div className='m-1'>
         {error ? (<h1>error</h1>) :(<div className="row justify-content-center boxshadow">
                 <div className='col-md-5'>
                   <div>
-                      <h1>Booking details</h1>
+                      <h1>Reservation details</h1>
                       <p>Room Number : {rooms.roomNumber}</p>
                       <p>Name : </p>
                       <p>Checkin : {checkin}</p>
@@ -45,7 +59,7 @@ function Reserve() {
                       <p>Total payment (€) : {totalpayment}</p>
                   </div>
                 <div style={{float:'right'}}>
-                      <button className='btn btn-primary'>Reserve Now</button> 
+                      <button className='btn btn-primary' onClick={reservenow}>Reserve Now</button> 
                 </div> 
                 </div>
                 <div className='col-md-5'>

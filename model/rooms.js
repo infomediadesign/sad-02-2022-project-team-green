@@ -13,8 +13,8 @@ const roomsSchema = mongoose.Schema({
         type : Number,
         required:true
     },
-    images:[],
-    bookings:[],
+    images: [],
+    bookings: [],
     description:{
         type : String,
         required:true

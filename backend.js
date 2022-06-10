@@ -6,7 +6,11 @@ const dbconf = require("./db")
 app.use(express.json())
 
 const room = require('./router/room')
+const reserve = require('./router/reserveroom')
+
+
 app.use('/getroom',room);
+app.use('/reservation',reserve);
 
 
 
