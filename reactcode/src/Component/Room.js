@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
-function Room({room}) {
+function Room({room,checkin,checkout}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -16,7 +16,7 @@ function Room({room}) {
             <p>Guests :{room.maxPeople}</p>
             <p>Rent(€) :{room.roomPerDay}</p>
             <div style={{float:'right'}}>
-              <Link to={`/reserve/${room._id}`}>
+              <Link to={`/reserve/${room._id}/${checkin}/${checkout}`}>
               <button className='btn btn-primary m-3'>Reserve</button>
               </Link>
               <button className='btn btn-primary' onClick={handleShow}>Details</button>

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 
 function Reserve() {
   const [rooms, saverooms] = useState([]);
   const [loading, saveloading] = useState(true);
   const [error, saveerror] = useState();
-  const {roomid}= useParams();
+  const {roomid,checkin,checkout}= useParams();
+  const checkinn =moment(checkin,'MMM Do YYYY, dddd');
+  const checkoutt =moment(checkout,'MMM Do YYYY, dddd')
+  const totaldays=checkoutt.diff(checkinn,'days');
+  const totalpayment =rooms.roomPerDay*totaldays;
+
   useEffect(() => async function Reserve() {
       try {
           saveloading(true);
@@ -28,15 +34,15 @@ function Reserve() {
                       <h1>Booking details</h1>
                       <p>Room Number : {rooms.roomNumber}</p>
                       <p>Name : </p>
-                      <p>From : </p>
-                      <p>To : </p>
+                      <p>Checkin : {checkin}</p>
+                      <p>Checkout : {checkout}</p>
                       <p>Max Guests : {rooms.maxPeople}</p>
                   </div>
                   <div>
                       <h1>Payment</h1>
-                      <p>Total Days : </p>
-                      <p>cost per day :{rooms.roomPerDay} </p>
-                      <p>Total payment : </p>
+                      <p>Total Days : {totaldays}</p>
+                      <p>cost per day (€) :{rooms.roomPerDay} </p>
+                      <p>Total payment (€) : {totalpayment}</p>
                   </div>
                 <div style={{float:'right'}}>
                       <button className='btn btn-primary'>Reserve Now</button> 

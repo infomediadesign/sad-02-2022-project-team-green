@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
       <Routes>
           <Route path='/home' exact element={<Home />}/>
-          <Route path='/reserve/:roomid' exact element={<Reserve />}/>
+          <Route path='/reserve/:roomid/:checkin/:checkout' exact element={<Reserve />}/>
       </Routes>
       </BrowserRouter>
     </div>
