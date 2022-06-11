@@ -51,7 +51,6 @@ function Home() {
    function filterguest(guest){
         const temp =temprooms.filter(rooms=>rooms.maxPeople == guest);
         saverooms(temp);
-        console.log(temp);
     }
 
     return (
