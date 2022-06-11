@@ -9,16 +9,16 @@ function Hoteladmin() {
             <h1 className='text-center'>Hotel Admin</h1>
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Rooms" key="1">
-                    <h1>Rooms</h1>
+                    <AllRooms/>
                 </TabPane>
                 <TabPane tab="Add new room" key="2">
-                    <h1>Add New Room</h1>
+                    <AddRooms />
                 </TabPane>
                 <TabPane tab="Reservations" key="3">
                     <ReservedRooms />
                 </TabPane>
                 <TabPane tab="Users" key="4">
-                    <h1>Users</h1>
+                    <AllUsers/>
                 </TabPane>
             </Tabs>
         </div>)
@@ -74,5 +74,46 @@ export function ReservedRooms() {
             </div>
         </div>
 
+    )
+}
+
+
+export function AddRooms() {
+    useEffect(() => async function () {
+        try {
+           
+        } catch (error) {
+           
+        }
+    }, [])
+    return (
+     <h1></h1>   
+    )
+}
+
+
+export function AllRooms() {
+    useEffect(() => async function () {
+        try {
+           
+        } catch (error) {
+           
+        }
+    }, [])
+    return (
+        <h1></h1>
+    )
+}
+
+export function AllUsers() {
+    useEffect(() => async function () {
+        try {
+           
+        } catch (error) {
+           
+        }
+    }, [])
+    return (
+        <h1></h1>       
     )
 }
