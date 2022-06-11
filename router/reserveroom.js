@@ -26,10 +26,15 @@ router.post("/reservenow",async(req,res)=> {
         const currentreservationdata = await Rooms.findOne({_id : rooms._id});
         currentreservationdata.bookings.push({reservationid:reser._id,checkin:checkin,checkout:checkout,userid:userid,roomstatus:reser.status});
         await currentreservationdata.save();
-        res.send("hi");     
+        res.send("");     
     }
         catch(error){
             return res.status(400).json({error});
         }
 });
+
+router.get("/reservenow",async(req,res)=>{
+    const reser = await Reservation.find();
+    res.send(reser);
+})
 module.exports = router;
