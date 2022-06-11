@@ -14,7 +14,7 @@ function Home() {
     const [checkin, savecheckin] = useState();
     const [checkout, savecheckout] = useState();
     const [roomavail,saveroomavail]=useState([])
-    useEffect(() => async function fetchData() {
+    useEffect(() => async function() {
         try {
             saveloading(true);
             const data = (await axios.get('/getroom/getRooms')).data;
@@ -26,10 +26,10 @@ function Home() {
             console.log(error);
             saveloading(false);
         }
-        fetchData();
     }, [])
    
-    const date =(bookingdates) => {
+    function date(bookingdates) 
+    {
         savecheckin(moment(bookingdates[0]).format('MMM Do YYYY, dddd'));
         savecheckout(moment(bookingdates[1]).format('MMM Do YYYY, dddd'));
         var avail = false;
@@ -43,7 +43,7 @@ function Home() {
                     }
                 }
             }  if (avail == true || rooms.bookings.length == 0) {
-                saveroomavail(rooms);
+                roomavail.push(rooms);
             }
             saverooms(roomavail);
         }
