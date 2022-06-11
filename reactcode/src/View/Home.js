@@ -36,7 +36,7 @@ function Home() {
         for (const rooms of temprooms) {
             if (rooms.bookings.length > 0) {
                 for (const booking of rooms.bookings) {
-                    if (!moment(moment(bookingdates[0]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin, booking.checkout) && !moment(moment(bookingdates[1]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin, booking.checkout)) {
+                    if (!(moment(moment(bookingdates[0]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin, booking.checkout)) && !(moment(moment(bookingdates[1]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin, booking.checkout))) {
                         if (((moment(bookingdates[0]).format('MMM Do YYYY, dddd')) !== booking.checkin) && ((moment(bookingdates[0]).format('MMM Do YYYY, dddd')) !== booking.checkout) && ((moment(bookingdates[1]).format('MMM Do YYYY, dddd')) !== booking.checkin) && ((moment(bookingdates[1]).format('MMM Do YYYY, dddd')) !== booking.checkout)) {
                             avail = true;
                         }
