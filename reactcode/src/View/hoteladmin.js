@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tabs } from 'antd';
 import axios from "axios";
 
@@ -21,18 +21,18 @@ function Hoteladmin() {
                     <h1>Users</h1>
                 </TabPane>
             </Tabs>
-        </div>   )
+        </div>)
 }
 export default Hoteladmin
 
-export function ReservedRooms(){
+export function ReservedRooms() {
     const [reservation, savereservation] = useState([]);
     const [loading, saveloading] = useState();
     const [error, saveerror] = useState();
-    useEffect(() => async function() {
+    useEffect(() => async function () {
         try {
             saveloading(true);
-            const data =(await axios.get('/reservation/reservenow')).data;
+            const data = (await axios.get('/reservation/reservenow')).data;
             savereservation(data);
             console.log(reservation);
             saveloading(false);
@@ -42,10 +42,53 @@ export function ReservedRooms(){
             saveloading(false);
         }
     }, [])
-    return(
+    return (
         <div className='row'>
             <div className='col-md-8'>
-                    <h1>Reservations</h1>
+                <h1>Reservations</h1>
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Reservation Id</th>
+
+                            <th>User Id</th>
+
+                            <th>Room Number</th>
+
+                            <th>Checkin</th>
+
+                            <th>Checkout</th>
+
+                            <th>Payment</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                         <tr>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                            </tr>
+
+                    </tbody>
+
+                </table>
             </div>
 
         </div>
