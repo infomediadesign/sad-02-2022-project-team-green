@@ -55,12 +55,12 @@ function Home() {
 
     return (
         <div className='container'>
-            <div className='row mt-2  boxshadow'>
+            <div className='row mt-2  bsw'>
                 <div className='col-md-5'>
                     <RangePicker showTime format="MM-DD-YYYY" onChange={date} />
                 </div>
-                <div className='col-md-5'>
-                    <select value='' onChange={(guest)=>{filterguest(guest.target.value)}}>
+                <div className='col-md-3' style={{float:'right'}}>
+                    <select value='type' onChange={(guest)=>{filterguest(guest.target.value)}}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

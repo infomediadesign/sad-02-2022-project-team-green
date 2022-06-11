@@ -38,7 +38,8 @@
 }
 
 .navbar{
-  background-color: blue !important;
+  background-color:#c5aa6a !important;
+  size-adjust: 10px;
 }
 
 .navlink{
