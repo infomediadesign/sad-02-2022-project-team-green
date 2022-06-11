@@ -2,7 +2,7 @@ import React from 'react'
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
-function admin() {
+function hoteladmin() {
     return (
         <div className='mt-3 ml-3 bs'>
             <h1> Hotel Management</h1>
@@ -22,4 +22,4 @@ function admin() {
             </Tabs>
         </div>   )
 }
-export default admin
+export default hoteladmin
