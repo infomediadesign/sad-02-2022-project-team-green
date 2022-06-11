@@ -47,50 +47,31 @@ export function ReservedRooms() {
             <div className='col-md-8'>
                 <h1>Reservations</h1>
                 <table>
-
                     <thead>
-
                         <tr>
-
                             <th>Reservation Id</th>
-
                             <th>User Id</th>
-
                             <th>Room Number</th>
-
                             <th>Checkin</th>
-
                             <th>Checkout</th>
-
                             <th>Payment</th>
-
                         </tr>
-
                     </thead>
 
                     <tbody>
-
-                         <tr>
-
-                                <td></td>
-
-                                <td></td>
-
-                                <td></td>
-
-                                <td></td>
-
-                                <td></td>
-
-                                <td></td>
-
+                    {reservation && (reservation.map(reser =>{
+                        return <tr>
+                                <td>{reser._id}</td>
+                                <td>{reser.userid}</td>
+                                <td>{reser.roomNumber}</td>
+                                <td>{reser.checkin}</td>
+                                <td>{reser.checkout}</td>
+                                <td>{reser.totalpayment}</td>
                             </tr>
-
+                      }))}
                     </tbody>
-
                 </table>
             </div>
-
         </div>
 
     )
