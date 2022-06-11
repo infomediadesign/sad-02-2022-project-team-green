@@ -6,9 +6,10 @@ import { DatePicker, Space } from 'antd';
 import Room from '../Component/Room';
 
 const { RangePicker } = DatePicker;
-
+var roomavail = [];
 function Home() {
     const [rooms, saverooms] = useState([]);
+    const [temprooms, savetemprooms] = useState([]);
     const [loading, saveloading] = useState();
     const [error, saveerror] = useState();
     const [checkin, savecheckin] = useState();
@@ -18,6 +19,7 @@ function Home() {
             saveloading(true);
             const data = (await axios.get('/getroom/getRooms')).data;
             saverooms(data);
+            savetemprooms(data);
             saveloading(false);
         } catch (error) {
             saveerror(true);
@@ -31,6 +33,24 @@ function Home() {
     {
         savecheckin(moment(bookingdates[0]).format('MMM Do YYYY, dddd'));
         savecheckout(moment(bookingdates[1]).format('MMM Do YYYY, dddd'));
+        var avail = false;
+        for( const rooms of temprooms){
+            if(rooms.bookings.length >0){
+                for(const booking of rooms.bookings){
+                    if(!moment(moment(bookingdates[0]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin,booking.checkout) && !moment(moment(bookingdates[1]).format('MMM Do YYYY, dddd')).isBetween(booking.checkin,booking.checkout)){
+                        if(((moment(bookingdates[0]).format('MMM Do YYYY, dddd')) !== booking.checkin)&&((moment(bookingdates[0]).format('MMM Do YYYY, dddd')) !== booking.checkout)&&((moment(bookingdates[1]).format('MMM Do YYYY, dddd')) !== booking.checkin)&&((moment(bookingdates[1]).format('MMM Do YYYY, dddd')) !== booking.checkout)){
+                            avail =true;
+                        }
+                    }
+                }                    
+            }
+            if(avail == true || rooms.bookings.length == 0){
+                roomavail.push(rooms);
+            }
+            saverooms(roomavail);
+            console.log(roomavail);
+            console.log(rooms);
+        }
     }
 
     return (
