@@ -13,7 +13,7 @@ function Reserve() {
   const totaldays=checkoutt.diff(checkinn,'days');
   const [totalpayment, savetotalpayment] = useState();
 
-  useEffect(() => async function Reserve() {
+  useEffect(() => async function() {
       try {
           saveloading(true);
           const data = (await axios.post('/getroom/getroombyid', {roomid:roomid})).data;
@@ -25,7 +25,6 @@ function Reserve() {
           console.log(error);
           saveloading(false);
       }
-      Reserve();
   }, [])
 
   async function reservenow(){
@@ -37,7 +36,7 @@ function Reserve() {
         totaldays,
         totalpayment
       }
-      const reservesend = await axios.post('/reservation/reservenow',reserveDetails)
+      const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
   }
 
   return (

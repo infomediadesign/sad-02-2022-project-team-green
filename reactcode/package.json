@@ -14,12 +14,13 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^2.1.3",
+    "sweetalert2": "^11.4.17",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha src/test/reservationtest.js",
+    "test": "mocha reservationtest.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
