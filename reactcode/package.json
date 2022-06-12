@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha src/test/reservationtest.js",
+    "test": "mocha reservationtest.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
