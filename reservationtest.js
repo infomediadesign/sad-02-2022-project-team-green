@@ -16,12 +16,12 @@ describe('reservation',()=>{
                 response.body.length.should.be.eq(1);
             done();
             });
-        })
+        });
         it("wrong URL",(done)=>{
             chai.request('http://localhost:8888').get("/reservation/reserve").end((err,response)=>{
                 response.should.have.status(404);
             done();
         });
-    })
-    })
-})
+    });
+    });
+});
