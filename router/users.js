@@ -53,11 +53,17 @@ router.post("/signup", async (req, res) => {
 });
 
 
-router.post("/login",async (req, res) => {
+router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     // check email
     const user = await User.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
+        req.user = {
+            _id: user.id,
+            username: user.username,
+            email: user.email,
+            token: generateToken(user._id)
+        };
         res.json({
             _id: user.id,
             username: user.username,
@@ -70,7 +76,7 @@ router.post("/login",async (req, res) => {
     }
 })
 
-router.get("/",async (req, res) => {
+router.get("/", async (req, res) => {
     const { _id, username, email } = await User.findById(req.user.id);
     res.status(200).json({
         id: _id,
