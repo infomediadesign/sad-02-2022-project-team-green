@@ -14,4 +14,9 @@ router.post("/getroombyid",async(req,res)=> {
         const room = await Rooms.findOne({_id:roomid});
         res.send(room);
 });
+router.post("/addnewroom",async(req,res)=> {
+        const newroooom = new Rooms(req.body);
+        await newroooom.save();
+        res.send("added");
+});
 module.exports = router;
