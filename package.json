@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node backend.js",
     "app": "nodemon backend.js",
-    "test": "mocha reservationtest.js --timeout 15000"
+    "test": "mocha reservationtest.js userstest.js --timeout 15000"
   },
   "repository": {
     "type": "git",
