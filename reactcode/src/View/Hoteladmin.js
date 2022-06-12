@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Tabs } from 'antd';
+import { Descriptions, Tabs } from 'antd';
 import axios from "axios";
 
 const { TabPane } = Tabs;
@@ -79,6 +79,18 @@ export function ReservedRooms() {
 
 
 export function AddRooms() {
+    const [roomNumber,saveroomNumber] = useState();
+    const [maxPeople,savemaxPeople] = useState();
+    const [roomPerDay,saveroomPerDay] = useState();
+    const [description,savedescription] = useState();
+    const [images,saveimages] = useState();
+
+    function add(){
+        const addnewrooms = {
+            roomNumber,maxPeople,roomPerDay,description,images:[images]
+        }
+        console.log(addnewrooms);
+    }
     useEffect(() => async function () {
         try {
            
@@ -93,19 +105,19 @@ export function AddRooms() {
 
             <h1>Add New Room</h1>
 
-            <input type ="text" className='form-control'  placeholder='Room Number'></input>
+            <input type ="text" className='form-control'  placeholder='Room Number' value={roomNumber} onChange={(addrooms)=>{saveroomNumber(addrooms.target.value)}}></input>
 
-            <input type ="text"  className='form-control' placeholder='Max Guests'></input>
+            <input type ="text"  className='form-control' placeholder='Max Guests' value={maxPeople} onChange={(addrooms)=>{savemaxPeople(addrooms.target.value)}}></input>
 
-            <input type ="text" className='form-control' placeholder='Cost Per Day'></input>
+            <input type ="text" className='form-control' placeholder='Cost Per Day' value={roomPerDay} onChange={(addrooms)=>{saveroomPerDay(addrooms.target.value)}}></input>
 
-            <input type ="text" className='form-control' placeholder='Description'></input>
+            <input type ="text" className='form-control' placeholder='Description' value={description} onChange={(addrooms)=>{savedescription(addrooms.target.value)}}></input>
 
-            <input type ="text" className='form-control' placeholder='Image'></input>
+            <input type ="text" className='form-control' placeholder='Image' value={images} onChange={(addrooms)=>{saveimages(addrooms.target.value)}}></input>
 
             <br/>
 
-            <button className='btn btn-primary'>Add</button>
+            <button className='btn btn-primary' onClick={add}>Add</button>
 
         </div>
 
