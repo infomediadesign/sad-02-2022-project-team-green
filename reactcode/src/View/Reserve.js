@@ -1,12 +1,73 @@
 import React, { useState, useEffect } from 'react'
+import axios from "axios"
+import { useParams } from 'react-router-dom';
+import moment from 'moment';
 
 function Reserve() {
+  const [rooms, saverooms] = useState([]);
+  const [loading, saveloading] = useState(true);
+  const [error, saveerror] = useState();
+  const {roomid,checkin,checkout}= useParams();
+  const checkinn =moment(checkin,'MMM Do YYYY, dddd');
+  const checkoutt =moment(checkout,'MMM Do YYYY, dddd');
+  const totaldays=checkoutt.diff(checkinn,'days');
+  const [totalpayment, savetotalpayment] = useState();
+
+  useEffect(() => async function Reserve() {
+      try {
+          saveloading(true);
+          const data = (await axios.post('/getroom/getroombyid', {roomid:roomid})).data;
+          savetotalpayment(data.roomPerDay*totaldays);
+          saverooms(data);
+          saveloading(false);
+      } catch (error) {
+          saveerror(true);
+          console.log(error);
+          saveloading(false);
+      }
+      Reserve();
+  }, [])
+
+  async function reservenow(){
+      const reserveDetails={
+        rooms,
+        userid:'123',
+        checkin,
+        checkout,
+        totaldays,
+        totalpayment
+      }
+      const reservesend = await axios.post('/reservation/reservenow',reserveDetails)
+  }
+
   return (
-    <div>
-        <h1>Reserve</h1>
+    <div className='m-1'>
+        {error ? (<h1>error</h1>) :(<div className="row justify-content-center boxshadow">
+                <div className='col-md-5'>
+                  <div>
+                      <h1>Reservation details</h1>
+                      <p>Room Number : {rooms.roomNumber}</p>
+                      <p>Name : </p>
+                      <p>Checkin : {checkin}</p>
+                      <p>Checkout : {checkout}</p>
+                      <p>Max Guests : {rooms.maxPeople}</p>
+                  </div>
+                  <div>
+                      <h1>Payment</h1>
+                      <p>Total Days : {totaldays}</p>
+                      <p>cost per day (€) :{rooms.roomPerDay} </p>
+                      <p>Total payment (€) : {totalpayment}</p>
+                  </div>
+                <div style={{float:'right'}}>
+                      <button className='btn btn-primary' onClick={reservenow}>Reserve Now</button> 
+                </div> 
+                </div>
+                <div className='col-md-5'>
+                  <h1>image</h1>  
+                </div>   
+                </div>)}
     </div>
   )
 }
 
 export default Reserve
-//hi
