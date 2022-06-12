@@ -4,7 +4,8 @@ require('dotenv').config();
 
 const appUses = [
     { apiPath: '/getroom', routerPath: './router/room' },
-    { apiPath: '/api/users', routerPath: './router/users' }
+    { apiPath: '/reservation', routerPath: './router/reserveroom' },
+    { apiPath: '/users', routerPath: './router/users' }
 ]
 
 const app = express();

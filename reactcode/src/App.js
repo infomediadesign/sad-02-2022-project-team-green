@@ -5,6 +5,8 @@ import Home from './View/Home';
 import Nav from './Component/Nav';
 import Reserve from './View/Reserve';
 import Hoteladmin from './View/Hoteladmin';
+import Login from './View/Login';
+import Signup from './View/Signup';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Nav/>
       <BrowserRouter>
       <Routes>
+          <Route path='/login' exact element={<Login />}/>
+          <Route path='/Signup' exact element={<Signup />}/>
           <Route path='/home' exact element={<Home />}/>
           <Route path='/admin' exact element={<Hoteladmin />}/>
           <Route path='/reserve/:roomid/:checkin/:checkout' exact element={<Reserve />}/>
