@@ -114,6 +114,50 @@ export function AllUsers() {
         }
     }, [])
     return (
-        <h1></h1>       
+        <div className='row'>
+
+        <div className='col-md-8'>
+
+            <h1>Users</h1>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>User Id</th>
+
+                        <th>User Name</th>
+
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody>
+
+               
+
+                <tr>
+
+                            <td></td>
+
+                            <td></td>
+
+                            <td></td>
+
+                        </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
     )
 }
