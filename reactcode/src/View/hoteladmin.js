@@ -101,7 +101,55 @@ export function AllRooms() {
         }
     }, [])
     return (
-        <h1></h1>
+        <div className='row'>
+
+            <div className='col-md-8'>
+
+                <h1>Rooms</h1>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Room Id</th>
+
+                            <th>Room Number</th>
+
+                            <th>Cost/day</th>
+
+                            <th>Max Guests</th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+                     <tr>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                                <td></td>
+
+                               
+
+                            </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
     )
 }
 
