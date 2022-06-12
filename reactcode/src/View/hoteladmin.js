@@ -115,11 +115,20 @@ export function AddRooms() {
 
 
 export function AllRooms() {
+    const [allrooms, saveallrooms] = useState([]);
+    const [loading, saveloading] = useState();
+    const [error, saveerror] = useState();
     useEffect(() => async function () {
         try {
-           
+            saveloading(true);
+            const data = (await axios.get('/getroom/getRooms')).data;
+            saveallrooms(data);
+            console.log(allrooms);
+            saveloading(false);
         } catch (error) {
-           
+            saveerror(true);
+            console.log(error);
+            saveloading(false);
         }
     }, [])
     return (
@@ -139,7 +148,7 @@ export function AllRooms() {
 
                             <th>Room Number</th>
 
-                            <th>Cost/day</th>
+                            <th>Cost Per Day(€)</th>
 
                             <th>Max Guests</th>
 
@@ -150,21 +159,19 @@ export function AllRooms() {
 
 
                     <tbody>
+                    {allrooms && (allrooms.map(room =>{
+                        return <tr>
 
-                     <tr>
+                                <td>{room._id}</td>
 
-                                <td></td>
+                                <td>{room.roomNumber}</td>
 
-                                <td></td>
+                                <td>{room.roomPerDay}</td>
 
-                                <td></td>
-
-                                <td></td>
-
-                               
+                                <td>{room.maxPeople}</td>                              
 
                             </tr>
-
+                     }))}
                     </tbody>
 
                 </table>

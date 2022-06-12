@@ -15,5 +15,5 @@ appUses.forEach(use => {
     app.use(use.apiPath, require(use.routerPath));
 })
 
-const port = process.env.PORT || 8081;
+const port =  8888;
 app.listen(port, () => console.log(`server started using port ${port}`));
