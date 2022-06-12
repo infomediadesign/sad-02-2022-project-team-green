@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Descriptions, Tabs } from 'antd';
 import axios from "axios";
+import Sweet from "sweetalert2"
 
 const { TabPane } = Tabs;
 function Hoteladmin() {
@@ -85,11 +86,15 @@ export function AddRooms() {
     const [description,savedescription] = useState();
     const [images,saveimages] = useState();
 
-    function add(){
+    async function add(){
         const addnewrooms = {
             roomNumber,maxPeople,roomPerDay,description,images:[images]
         }
-        console.log(addnewrooms);
+        const rooomadd = await (await axios.post('/getroom/addnewroom',addnewrooms)).data;
+        console.log(rooomadd);
+        Sweet.fire("Success","New room added").then(rooomadd=>{
+            window.location.href='/admin'
+        });   
     }
     useEffect(() => async function () {
         try {

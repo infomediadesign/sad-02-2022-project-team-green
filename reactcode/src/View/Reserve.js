@@ -36,7 +36,7 @@ function Reserve() {
         totaldays,
         totalpayment
       }
-      const reservesend = await axios.post('/reservation/reservenow',reserveDetails)
+      const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
   }
 
   return (

@@ -26,7 +26,7 @@ router.post("/reservenow",async(req,res)=> {
         const currentreservationdata = await Rooms.findOne({_id : rooms._id});
         currentreservationdata.bookings.push({reservationid:reser._id,checkin:checkin,checkout:checkout,userid:userid,roomstatus:reser.status});
         await currentreservationdata.save();
-        res.send("Hi");     
+        res.send("room reservation done");     
     }
         catch(error){
             return res.status(400).json({error});
