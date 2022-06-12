@@ -5,11 +5,7 @@
   "scripts": {
     "start": "node backend.js",
     "app": "nodemon backend.js",
-<<<<<<< HEAD
     "test": "mocha reservationtest.js --timeout 15000"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 0df41c6382f0f1041087a8511636a9157d76a2c3
   },
   "repository": {
     "type": "git",
