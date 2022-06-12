@@ -79,6 +79,12 @@ router.get("/",async (req, res) => {
     })
 
 });
+
+router.get("/allusers",async (req, res) => {
+    const alllusers= await User.find();
+    res.send(alllusers);
+});
+
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d'

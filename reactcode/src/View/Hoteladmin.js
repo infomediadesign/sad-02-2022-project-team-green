@@ -78,7 +78,6 @@ export function ReservedRooms() {
     )
 }
 
-
 export function AddRooms() {
     const [roomNumber,saveroomNumber] = useState();
     const [maxPeople,savemaxPeople] = useState();
@@ -91,18 +90,10 @@ export function AddRooms() {
             roomNumber,maxPeople,roomPerDay,description,images:[images]
         }
         const rooomadd = await (await axios.post('/getroom/addnewroom',addnewrooms)).data;
-        console.log(rooomadd);
         Sweet.fire("Success","New room added").then(rooomadd=>{
             window.location.href='/admin'
         });   
     }
-    useEffect(() => async function () {
-        try {
-           
-        } catch (error) {
-           
-        }
-    }, [])
     return (
         <div className='row'>
 
@@ -200,11 +191,22 @@ export function AllRooms() {
 }
 
 export function AllUsers() {
+
+    const [allusers, saveallusers] = useState([]);
+    const [loading, saveloading] = useState();
+    const [error, saveerror] = useState();
+    
     useEffect(() => async function () {
         try {
-           
+            saveloading(true);
+            const data = (await axios.get('/users/allusers')).data;
+            saveallusers(data);
+            console.log(allusers);
+            saveloading(false);
         } catch (error) {
-           
+            saveerror(true);
+            console.log(error);
+            saveloading(false);
         }
     }, [])
     return (
@@ -230,22 +232,18 @@ export function AllUsers() {
 
                 </thead>
 
-
-
                 <tbody>
+                {allusers && (allusers.map(userdata =>{
+               return <tr>
 
-               
+                            <td>{userdata._id}</td>
 
-                <tr>
+                            <td>{userdata.username}</td>
 
-                            <td></td>
-
-                            <td></td>
-
-                            <td></td>
+                            <td>{userdata.email}</td>
 
                         </tr>
-
+                }))}
                 </tbody>
 
             </table>
