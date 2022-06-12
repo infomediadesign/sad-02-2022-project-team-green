@@ -13,7 +13,7 @@ function Login() {
     const data = await (await axios.post('/users/login', req)).data;
     console.log(data);
     Sweet.fire("Success", "Logged Successfully").then(data => {
-      window.location.href = '/admin'
+      window.location.href = '/home'
     });
   }
   useEffect(() => async function () {

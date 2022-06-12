@@ -60,7 +60,7 @@ router.post("/login",async (req, res) => {
     if (user && (await bcrypt.compare(password, user.password))) {
         res.json({
             _id: user.id,
-            name: user.name,
+            username: user.username,
             email: user.email,
             token: generateToken(user._id)
         })
@@ -71,10 +71,10 @@ router.post("/login",async (req, res) => {
 })
 
 router.get("/",async (req, res) => {
-    const { _id, name, email } = await User.findById(req.user.id);
+    const { _id, username, email } = await User.findById(req.user.id);
     res.status(200).json({
         id: _id,
-        name,
+        username,
         email
     })
 
