@@ -87,7 +87,29 @@ export function AddRooms() {
         }
     }, [])
     return (
-     <h1></h1>   
+        <div className='row'>
+
+        <div className='col-md-5'>
+
+            <h1>Add New Room</h1>
+
+            <input type ="text" className='form-control'  placeholder='Room Number'></input>
+
+            <input type ="text"  className='form-control' placeholder='Max Guests'></input>
+
+            <input type ="text" className='form-control' placeholder='Cost Per Day'></input>
+
+            <input type ="text" className='form-control' placeholder='Description'></input>
+
+            <input type ="text" className='form-control' placeholder='Image'></input>
+
+            <br/>
+
+            <button className='btn btn-primary'>Add</button>
+
+        </div>
+
+    </div>   
     )
 }
 
