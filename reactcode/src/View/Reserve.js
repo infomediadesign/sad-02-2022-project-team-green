@@ -31,7 +31,7 @@ function Reserve() {
   async function reservenow(){
       const reserveDetails={
         rooms,
-        userid:'123',
+        userid:JSON.parse(localStorage.getItem('user'))._id,
         checkin,
         checkout,
         totaldays,
@@ -49,7 +49,7 @@ function Reserve() {
                   <div>
                       <h1>Reservation details</h1>
                       <p>Room Number : {rooms.roomNumber}</p>
-                      <p>Name : </p>
+                      <p>Name :{JSON.parse(localStorage.getItem('user')).username} </p>
                       <p>Checkin : {checkin}</p>
                       <p>Checkout : {checkout}</p>
                       <p>Max Guests : {rooms.maxPeople}</p>

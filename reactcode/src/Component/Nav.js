@@ -1,7 +1,11 @@
 import React from 'react'
 
 function Nav() {
-    const currentuser =JSON.parse(localStorage.getItem('user'));
+    const currentuser = JSON.parse(localStorage.getItem('user'));
+    function logout(){
+        localStorage.removeItem('user');
+        window.location.href="/login";
+    }
     return (
         <div>
             <nav class="navbar navbar-expand-lg">
@@ -11,7 +15,15 @@ function Nav() {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" >
-                       {currentuser ? (<><h1  style={{float:'right'}}>{currentuser.username}</h1></>):(<><h1>Welcome</h1></>)};
+                        {currentuser ? (<><div class="btn-group">
+                            <button type="button" class="btn btn-Success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                {currentuser.username}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                                <li><a class="dropdown-item" href="#" onClick={logout}>Logout</a></li>
+                            </ul>
+                        </div></>) : (<><a href='/signup'>Signup</a></>)};
                     </div>
                 </div>
             </nav>
