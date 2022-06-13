@@ -54,7 +54,6 @@ router.post("/cancelreservation",async(req,res)=>{
     const tempo = booki.filter(reservat => reservat.reservationid.toString() !== reserveid)
     room.bookings=tempo;
     await room.save()
-    res.send("cancelled")
 })
 
 module.exports = router;
