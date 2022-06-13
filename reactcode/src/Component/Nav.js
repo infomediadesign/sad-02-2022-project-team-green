@@ -20,7 +20,7 @@ function Nav() {
                                 {currentuser.username}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                                <li><a class="dropdown-item" href="/mybooking">My Bookings</a></li>
                                 <li><a class="dropdown-item" href="#" onClick={logout}>Logout</a></li>
                             </ul>
                         </div></>) : (<><a href='/signup'>Signup</a></>)};

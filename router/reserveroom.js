@@ -37,4 +37,10 @@ router.get("/reservenow",async(req,res)=>{
     const reser = await Reservation.find();
     res.send(reser);
 })
+
+router.post("/mybookings",async(req,res)=>{
+    const userid = req.body.userid;
+    const reserv = await Reservation.find({userid:userid});
+    res.send(reserv);
+})
 module.exports = router;

@@ -7,6 +7,7 @@ import Reserve from './View/Reserve';
 import Hoteladmin from './View/Hoteladmin';
 import Login from './View/Login';
 import Signup from './View/Signup';
+import UserMyBookings from './View/UserMyBookings';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/Signup' exact element={<Signup />}/>
           <Route path='/home' exact element={<Home />}/>
           <Route path='/admin' exact element={<Hoteladmin />}/>
+          <Route path='/mybooking' exact element={<UserMyBookings />}/>
           <Route path='/reserve/:roomid/:checkin/:checkout' exact element={<Reserve />}/>
       </Routes>
       </BrowserRouter>
