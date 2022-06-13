@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
-import Sweet from "sweetalert2"
 
 function UserMyBookings() {
   const [loading, saveloading] = useState();

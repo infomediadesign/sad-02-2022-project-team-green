@@ -39,14 +39,14 @@ function Reserve() {
         totalpayment,
       }
       const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
-      Sweet.fire("Room is reserved").then(data=>{
+      Sweet.fire(" ","Room is reserved").then(data=>{
         window.location.href='/home';
   })}
 
   return (
     <div className='m-1'>
         {error ? (<h1>error</h1>) :(<div className="row justify-content-center boxshadow">
-                <div className='col-md-7'>
+                <div className='col-md-11'>
                   <div>
                       <h1>Reservation details</h1>
                       <p>Room Number : {rooms.roomNumber}</p>
@@ -64,9 +64,6 @@ function Reserve() {
                 <div style={{float:'right'}}>
                       <button className='btn btn-primary' onClick={reservenow}>Reserve Now</button> 
                 </div> 
-                </div>
-                <div className='col-md-5'>
-                  <img src={rooms.images} className="imgr"/>  
                 </div>   
                 </div>)}
     </div>

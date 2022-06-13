@@ -22,7 +22,7 @@ function Login() {
   catch(err){
       saveerror(true);
       saveloading(false);
-      Sweet.fire("","Invalid credentials").then(data=>{
+      Sweet.fire(" ","Invalid credentials").then(data=>{
         window.location.href='/login';
   })
   }

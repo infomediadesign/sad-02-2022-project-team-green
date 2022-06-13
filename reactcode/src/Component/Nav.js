@@ -4,7 +4,7 @@ function Nav() {
     const currentuser = JSON.parse(localStorage.getItem('user'));
     function logout(){
         localStorage.removeItem('user');
-        window.location.href="/login";
+        window.location.href="/";
     }
     return (
         <div>
