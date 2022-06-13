@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sweet from "sweetalert2"
-
+import hotelbackground from "../images/hotelbackground.png" 
 
 function Login() {
   const [loading, saveloading] = useState();
@@ -31,19 +31,17 @@ function Login() {
     window.location.href ="/signup";
   }
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-5">
-          <div>
-            <h1>Login</h1>
-            <input type="text" placeholder="Email" value={email} onChange={(newuser) => { saveEmail(newuser.target.value) }}></input><br />
-            <input type="text" placeholder="Password" value={password} onChange={(newuser) => { savePassword(newuser.target.value) }}></input><br />
-            <button className="btn btn-primary" onClick={login}>login</button>
-            <button className="btn btn-secondary" onClick={register}>Register</button>
+    <div className="row justify" style={{backgroundImage: `url(${hotelbackground})`,backgroundSize:'cover',width: '100vw',height: '100vh'}}>
+      <div className="container">
+      <div className="row justify-content-centre" style={{margin:'auto',width:'30%'}}>
+            <h1 style={{fontSize:'20px',color:'white',marginTop:'5%'}}>Login</h1>
+            <input type="text" placeholder="Email" style={{marginTop:'2%'}} value={email} onChange={(newuser) => { saveEmail(newuser.target.value) }}></input><br />
+            <input type="text" placeholder="Password" style={{marginTop:'2%'}} value={password} onChange={(newuser) => { savePassword(newuser.target.value) }}></input><br />
+            <button className="btn btn-primary" onClick={login} style={{width:'45%',marginTop:'5%'}}>login</button>
+            <button className="btn btn-secondary" onClick={register} style={{width:'45%',marginTop:'5%',marginLeft:'10%'}}>Register</button>
           </div>
-        </div>
       </div>
-    </div>
+      </div>
   );
 
 };

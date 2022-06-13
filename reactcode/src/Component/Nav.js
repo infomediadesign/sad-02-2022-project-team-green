@@ -9,7 +9,7 @@ function Nav() {
     return (
         <div>
             <nav class="navbar navbar-expand-lg">
-                <b><a class="navbar-brand" href="/home">Hotel Glory</a></b>
+                <b><a class="navbar-brand" href="/home" style={{color:'white'}}>Hotel Glory</a></b>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" >
                         {currentuser ? (<div class="btn-group">
