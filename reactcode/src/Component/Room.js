@@ -8,9 +8,9 @@ function Room({room,checkin,checkout}) {
   const handleShow = () => setShow(true);
   return (
     <div className='row boxshadow'>
-        {/* <div className='col-md-4'> */}
-            {/* <img src={room.images[0]} className="imagelogo"/> */}
-        {/* </div> */}
+         <div className='col-md-4'>
+            <img src={room.images[0]} className="imagelogo"/>
+         </div> 
         <div className='col-md-7'>
             <h1>Room Number:{room.roomNumber}</h1>
             <p>Guests :{room.maxPeople}</p>

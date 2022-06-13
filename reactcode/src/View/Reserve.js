@@ -13,6 +13,7 @@ function Reserve() {
   const checkoutt =moment(checkout,'MMM Do YYYY, dddd');
   const totaldays=checkoutt.diff(checkinn,'days');
   const [totalpayment, savetotalpayment] = useState();
+  const [images, saveimages] = useState([]);
 
   useEffect(() => async function() {
       try {
@@ -35,7 +36,7 @@ function Reserve() {
         checkin,
         checkout,
         totaldays,
-        totalpayment
+        totalpayment,
       }
       const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
       Sweet.fire("Room is reserved").then(data=>{
@@ -45,7 +46,7 @@ function Reserve() {
   return (
     <div className='m-1'>
         {error ? (<h1>error</h1>) :(<div className="row justify-content-center boxshadow">
-                <div className='col-md-5'>
+                <div className='col-md-7'>
                   <div>
                       <h1>Reservation details</h1>
                       <p>Room Number : {rooms.roomNumber}</p>
@@ -65,7 +66,7 @@ function Reserve() {
                 </div> 
                 </div>
                 <div className='col-md-5'>
-                  <h1>image</h1>  
+                  <img src={rooms.images} className="imgr"/>  
                 </div>   
                 </div>)}
     </div>

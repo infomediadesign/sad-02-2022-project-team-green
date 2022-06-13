@@ -15,7 +15,7 @@ function App() {
       <Nav/>
       <BrowserRouter>
       <Routes>
-          <Route path='/login' exact element={<Login />}/>
+          <Route path='/' exact element={<Login />}/>
           <Route path='/Signup' exact element={<Signup />}/>
           <Route path='/home' exact element={<Home />}/>
           <Route path='/admin' exact element={<Hoteladmin />}/>
