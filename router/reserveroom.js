@@ -43,4 +43,18 @@ router.post("/mybookings",async(req,res)=>{
     const reserv = await Reservation.find({userid:userid});
     res.send(reserv);
 })
+
+router.post("/cancelreservation",async(req,res)=>{
+    const {reserveid,roomid} = req.body;
+    const reserva = await Reservation.findOne({_id:reserveid});
+    reserva.status="cancelled";
+    await reserva.save()
+    const room = await Rooms.findOne({_id:roomid})
+    const booki =room.bookings;
+    const tempo = booki.filter(reservat => reservat.reservationid.toString() !== reserveid)
+    room.bookings=tempo;
+    await room.save()
+    res.send("cancelled")
+})
+
 module.exports = router;

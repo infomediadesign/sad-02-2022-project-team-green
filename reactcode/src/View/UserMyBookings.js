@@ -3,11 +3,18 @@ import React,{useState,useEffect} from 'react'
 
 function UserMyBookings() {
   const [myownbookings, savemyownbookings] = useState([]);
-    const currentuser = JSON.parse(localStorage.getItem('user'))    
+    const currentuser = JSON.parse(localStorage.getItem('user')) ;
+
     useEffect(( ) => async function(){
       const my= await (await axios.post('/reservation/mybookings',{userid:currentuser._id})).data;
       savemyownbookings(my);
     },[])
+
+    async function cancelroom(reserveid,roomid){
+      const deleteroom= await (await axios.post('/reservation/cancelreservation',{reserveid,roomid})).data; 
+      console.log(deleteroom);
+    }
+
   return (
     <div className='container'>
       <div className='row mt-2'>
@@ -19,7 +26,11 @@ function UserMyBookings() {
                   <p>Checkin    : {book.checkin}</p>
                   <p>Checkout   : {book.checkout}</p>
                   <p>Payment(€) : {book.totalpayment}</p>
-                  <p>Status     : {book.status == "reserved" ? "Reserved" : "cancelled"}</p>
+                  <p>Status     : {book.status == "reserved" ? "Reserved" : "Cancelled"}</p>
+
+                  <div style={{float:"right"}}>
+                    <button className='btn btn-danger' onClick={()=>(cancelroom(book._id,book.roomid))}>Cancel Room</button>
+                  </div>
                  </div>
                 }))}
         </div>
