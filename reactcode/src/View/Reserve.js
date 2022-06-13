@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+import Sweet from "sweetalert2"
 
 function Reserve() {
   const [rooms, saverooms] = useState([]);
@@ -37,7 +38,9 @@ function Reserve() {
         totalpayment
       }
       const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
-  }
+      Sweet.fire("Room is reserved").then(data=>{
+        window.location.href='/home';
+  })}
 
   return (
     <div className='m-1'>

@@ -2,27 +2,31 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sweet from "sweetalert2"
 
-function Login() {
 
+function Login() {
+  const [loading, saveloading] = useState();
+  const [error, saveerror] = useState();
   const [email, saveEmail] = useState();
   const [password, savePassword] = useState();
   async function login() {
     const req = {
       email, password
     }
+    try{
+    saveloading(true);
     const data = await (await axios.post('/users/login', req)).data;
-    console.log(data);
-    Sweet.fire("Success", "Logged Successfully").then(data => {
+    saveloading(false);
+    localStorage.setItem('user', JSON.stringify(data));
       window.location.href = '/home'
-    });
   }
-  useEffect(() => async function () {
-    try {
-
-    } catch (error) {
-
-    }
-  }, [])
+  catch(err){
+      saveerror(true);
+      saveloading(false);
+      Sweet.fire("","Invalid credentials").then(data=>{
+        window.location.href='/login';
+  })
+  }
+  }
   return (
     <div className="container">
       <div className="row justify-content-center">
