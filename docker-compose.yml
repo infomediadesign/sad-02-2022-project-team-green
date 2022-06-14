@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+
+    web:
+
+      build: ./reactcode
+
+      stdin_open: true
+
+      ports:
+
+          - 3000:3000
+
+    api:
+
+      build: ./router
+
+      ports:
+
+          - 5000:5000
+
+      environment:
+
+        DB_URL: mongodb://db/backend/sad
+
+    db:
+
+      image: mongo:4.0-xenial
+
+      ports:
+
+          - 27017:27017
+
+      volumes:
+
+          - mongo-data:/data/db
+
+
+
+volumes:
+
+  mongo-data:
