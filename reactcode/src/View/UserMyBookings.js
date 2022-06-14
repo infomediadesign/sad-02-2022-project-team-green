@@ -16,6 +16,7 @@ function UserMyBookings() {
       saveloading(true);
       const deleteroom= await (await axios.post('/reservation/cancelreservation',{reserveid,roomid})).data; 
       saveloading(false);
+      console.log(deleteroom);
       window.location.href="/mybooking"
     }
 

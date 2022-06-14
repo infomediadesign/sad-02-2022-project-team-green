@@ -5,6 +5,11 @@ import moment from 'moment';
 import { DatePicker, Space } from 'antd';
 import Room from '../Component/Room';
 
+const disabledDate = (current) => {
+    return current && current < moment().endOf('day');
+  };
+
+
 const { RangePicker } = DatePicker;
 function Home() {
     const [rooms, saverooms] = useState([]);
@@ -57,10 +62,11 @@ function Home() {
         <div className='container'>
             <div className='row mt-2  bsw'>
                 <div className='col-md-5'>
-                    <RangePicker showTime format="MM-DD-YYYY" onChange={date} />
+                    <RangePicker disabledDate={disabledDate} showTime format="MM-DD-YYYY" onChange={date} />
                 </div>
-                <div className='col-md-3' style={{float:'right'}}>
-                    <select value='type' onChange={(guest)=>{filterguest(guest.target.value)}}>
+                <div className='col-md-5' style={{float:'right'}}>
+                    <label>Guests: </label>
+                    <select onChange={(guest)=>{filterguest(guest.target.value)}}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

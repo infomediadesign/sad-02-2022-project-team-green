@@ -56,6 +56,7 @@ export function ReservedRooms() {
                             <th>Checkin</th>
                             <th>Checkout</th>
                             <th>Payment</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
 
@@ -68,6 +69,7 @@ export function ReservedRooms() {
                                 <td>{reser.checkin}</td>
                                 <td>{reser.checkout}</td>
                                 <td>{reser.totalpayment}</td>
+                                <td>{reser.status}</td>
                             </tr>
                       }))}
                     </tbody>
