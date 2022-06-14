@@ -8,6 +8,7 @@ import Hoteladmin from './View/Hoteladmin';
 import Login from './View/Login';
 import Signup from './View/Signup';
 import UserMyBookings from './View/UserMyBookings';
+import Adminlogin from './View/Adminlogin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
           <Route path='/' exact element={<Login />}/>
           <Route path='/Signup' exact element={<Signup />}/>
+          <Route path='/Adminlogin' exact element={<Adminlogin />}/>
           <Route path='/home' exact element={<Home />}/>
           <Route path='/admin' exact element={<Hoteladmin />}/>
           <Route path='/mybooking' exact element={<UserMyBookings />}/>
