@@ -90,6 +90,7 @@ export function AddRooms() {
             roomNumber,maxPeople,roomPerDay,description,images:[images]
         }
         const rooomadd = await (await axios.post('/getroom/addnewroom',addnewrooms)).data;
+        
         Sweet.fire(" ","Success","New room added").then(rooomadd=>{
             window.location.href='/admin'
         });   

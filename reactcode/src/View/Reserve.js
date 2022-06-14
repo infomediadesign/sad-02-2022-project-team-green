@@ -39,6 +39,7 @@ function Reserve() {
         totalpayment,
       }
       const reservesend = await (await axios.post('/reservation/reservenow',reserveDetails)).data;
+      
       Sweet.fire(" ","Room is reserved").then(data=>{
         window.location.href='/home';
   })}
