@@ -11,6 +11,8 @@ describe('users',()=>{
         it("all test cases passed",(done)=>{
             chai.request('http://localhost:8888').get("/users/allusers").end((err,response)=>{
                 response.should.have.status(200);
+
+                
                 response.body.should.be.a('array');
                 response.body.length.should.be.eq(2);
             done();
