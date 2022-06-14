@@ -3,8 +3,7 @@ import React from 'react'
 function Nav() {
     const currentuser = JSON.parse(localStorage.getItem('user'));
     function logout(){
-        localStorage.removeItem('user');
-        
+        localStorage.removeItem('user');       
         window.location.href="/";
     }
     return (

@@ -13,9 +13,9 @@ function Signup(){
        }
     const data = await (await axios.post('/users/signup',register)).data;
      console.log(data);
-     
+
     Sweet.fire(" ","Success","Registered Successfully").then(data=>{
-        window.location.href='/login'
+        window.location.href='/'
     });   
   }
   useEffect(() => async function () {
