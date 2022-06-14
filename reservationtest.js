@@ -13,7 +13,7 @@ describe('reservation',()=>{
             chai.request('http://localhost:8888').get("/reservation/reservenow").end((err,response)=>{
                 response.should.have.status(200);
                 response.body.should.be.a('array');
-                response.body.length.should.be.eq(1);
+                response.body.length.should.be.eq(2);
             done();
             });
         });
