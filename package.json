@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node backend.js",
     "app": "nodemon backend.js",
+    "proxy": "http://127.0.0.1:4000/",
     "test": "mocha reservationtest.js userstest.js --timeout 15000"
   },
   "repository": {

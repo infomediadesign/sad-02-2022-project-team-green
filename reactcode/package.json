@@ -22,6 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "mocha reservationtest.js",
+    "proxy": "http://127.0.0.1:4000/",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
