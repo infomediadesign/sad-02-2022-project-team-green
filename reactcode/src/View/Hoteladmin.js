@@ -5,6 +5,9 @@ import Sweet from "sweetalert2"
 
 const { TabPane } = Tabs;
 function Hoteladmin() {
+    function logout(){
+        window.location.href='/';
+    }
     return (
         <div className='mt-3 ml-3 bs'>
             <h1 className='text-center'>Hotel Admin</h1>
@@ -21,7 +24,8 @@ function Hoteladmin() {
                 <TabPane tab="Users" key="4">
                     <AllUsers/>
                 </TabPane>
-            </Tabs>
+            </Tabs><br/>
+            <button className="btn btn-primary" onClick={logout} style={{width:'10%',marginLeft:'40%'}}>Logout</button>
         </div>)
 }
 export default Hoteladmin
